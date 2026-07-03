@@ -1,0 +1,4 @@
+tag,from,to,signal,cable,conductors_used,length_ft,notes
+DR-01,ENC-01 TB (D2 sig + GND),Door contact (frame),Door open/close,22/4 shielded,"white=sig, black=return (2 of 4)",25,"Reed on frame, magnet on leaf. Shield to GND bar at ENC end only; cut+tape at device. Drip loop at gland."
+WL-01,"ENC-01 TB (D3 DO, 5V, GND)",Leak sensor (floor/drip pan),Water/leak,22/4 shielded,"red=V+, black=GND, white=DO (3 of 4)",15,"Mount at lowest point. Green = spare. Shield at ENC end only; cut+tape at device. Drip loop at gland."
+PWR-01,5V USB-C supply (dedicated),ENC-01 USB-C bulkhead,5V power,USB-C (supply lead),USB-C,6,">= 2 A supply. Enter via IP67 bulkhead, NOT a gland. Short/quality cable; drip loop."
