@@ -1,0 +1,14 @@
+quantity,item,store_link,notes
+1,Arduino UNO R4 WiFi,https://store.arduino.cc/products/uno-r4-wifi,Main controller
+1,Adafruit BME280 Temperature Humidity Pressure Sensor - STEMMA QT,https://www.adafruit.com/product/2652,Main environmental sensor
+1,STEMMA QT / Qwiic JST SH 4-pin Cable - 100mm,https://www.adafruit.com/product/4210,I2C cable
+1,Magnetic contact switch door sensor,https://www.adafruit.com/product/375,Door/contact status
+1,Water Leak Detection Sensor,https://www.adafruit.com/product/4965,Leak detection
+1,Super Bright Red 5mm LED,https://www.adafruit.com/product/297,Alert LED
+1,Super Bright Green 5mm LED,https://www.adafruit.com/product/300,Normal LED
+1,Through-Hole Resistors - 220 ohm 5% 1/4W,https://www.adafruit.com/product/2780,LED current limiting
+1,Full Sized Premium Breadboard - 830 Tie Points,https://www.adafruit.com/product/239,Bench prototype
+1,Breadboarding wire bundle,https://www.adafruit.com/product/153,Bench wiring
+1,USB Type A to Type C Cable,https://www.adafruit.com/product/4474,Arduino power/programming
+1,5V USB-C power supply,https://www.adafruit.com/product/4298,Bench/trailer low-voltage power
+1,Small Plastic Project Enclosure - Weatherproof with Clear Top,https://www.adafruit.com/product/903,Low-voltage enclosure
