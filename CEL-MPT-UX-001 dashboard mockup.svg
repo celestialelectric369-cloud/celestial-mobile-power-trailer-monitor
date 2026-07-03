@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1120" height="700" fill="#0D0F12"/>
+  <!-- header -->
+  <rect width="1120" height="64" fill="#12151a"/>
+  <rect y="64" width="1120" height="3" fill="#F16029"/>
+  <text x="28" y="30" font-size="20" font-weight="700" fill="#ffffff">CEL SENTINEL NODE</text>
+  <text x="28" y="50" font-size="12" fill="#39C3F2">SC-01 SOL-C &#183; CASSIOPEIA &#183; Mobile Power Trailer</text>
+  <rect x="880" y="18" width="110" height="30" rx="15" fill="#12351f" stroke="#1e9e4a"/>
+  <text x="935" y="38" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">&#9679; ONLINE</text>
+  <text x="1092" y="30" font-size="11" fill="#8b95a5" text-anchor="end">RSSI -61 dBm</text>
+  <text x="1092" y="47" font-size="11" fill="#8b95a5" text-anchor="end">last update 12s</text>
+
+  <!-- ROW 1: system status banner -->
+  <rect x="28" y="88" width="1064" height="56" rx="10" fill="#0f2417" stroke="#1e9e4a" stroke-width="1.5"/>
+  <circle cx="64" cy="116" r="12" fill="#1e9e4a"/>
+  <text x="92" y="123" font-size="17" font-weight="700" fill="#4ade80">SYSTEM NORMAL</text>
+  <text x="1064" y="122" font-size="11" fill="#7ea88e" text-anchor="end">systemAlert = false &#183; all channels healthy</text>
+
+  <!-- ROW 2: environment gauges (V2.0) -->
+  <text x="28" y="176" font-size="11" font-weight="700" fill="#6b7686" letter-spacing="1">ENVIRONMENT (V2.0)</text>
+  <!-- temp gauge -->
+  <rect x="28" y="188" width="250" height="180" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="153" y="212" font-size="12" fill="#8b95a5" text-anchor="middle">BAY TEMPERATURE</text>
+  <path d="M73 320 A80 80 0 1 1 233 320" fill="none" stroke="#242a34" stroke-width="14"/>
+  <path d="M73 320 A80 80 0 0 1 175 244" fill="none" stroke="#39C3F2" stroke-width="14" stroke-linecap="round"/>
+  <text x="153" y="312" font-size="30" font-weight="700" fill="#fff" text-anchor="middle">78.4&#176;F</text>
+  <text x="153" y="336" font-size="10" fill="#6b7686" text-anchor="middle">alarm &#8805; 95&#176;F</text>
+  <!-- humidity gauge -->
+  <rect x="294" y="188" width="250" height="180" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="419" y="212" font-size="12" fill="#8b95a5" text-anchor="middle">HUMIDITY</text>
+  <path d="M339 320 A80 80 0 1 1 499 320" fill="none" stroke="#242a34" stroke-width="14"/>
+  <path d="M339 320 A80 80 0 0 1 419 240" fill="none" stroke="#7989C4" stroke-width="14" stroke-linecap="round"/>
+  <text x="419" y="312" font-size="30" font-weight="700" fill="#fff" text-anchor="middle">46%</text>
+  <text x="419" y="336" font-size="10" fill="#6b7686" text-anchor="middle">alarm &#8805; 70%</text>
+  <!-- door / leak pills -->
+  <rect x="560" y="188" width="250" height="84" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="584" y="216" font-size="12" fill="#8b95a5">DOOR / CONTACT</text>
+  <circle cx="596" cy="246" r="9" fill="#1e9e4a"/>
+  <text x="616" y="252" font-size="16" font-weight="700" fill="#4ade80">CLOSED</text>
+  <rect x="560" y="284" width="250" height="84" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="584" y="312" font-size="12" fill="#8b95a5">LEAK SENSOR</text>
+  <circle cx="596" cy="342" r="9" fill="#1e9e4a"/>
+  <text x="616" y="348" font-size="16" font-weight="700" fill="#4ade80">DRY</text>
+  <!-- battery bay temp (new) -->
+  <rect x="826" y="188" width="266" height="180" rx="10" fill="#161a21" stroke="#F16029" stroke-width="1.5"/>
+  <text x="959" y="212" font-size="12" fill="#f5a623" text-anchor="middle">BATTERY BAY TEMP &#183; NEW V2.5</text>
+  <text x="959" y="290" font-size="34" font-weight="700" fill="#fff" text-anchor="middle">81.2&#176;F</text>
+  <text x="959" y="316" font-size="10" fill="#6b7686" text-anchor="middle">DS18B20 &#183; alarm &#8805; 110&#176;F</text>
+  <text x="959" y="348" font-size="10" fill="#8b95a5" text-anchor="middle">&#916; vs bay ambient: +2.8&#176;F</text>
+
+  <!-- ROW 3: power intelligence (V2.5) -->
+  <text x="28" y="404" font-size="11" font-weight="700" fill="#F16029" letter-spacing="1">POWER SENSE (V2.5)</text>
+  <!-- voltage gauge -->
+  <rect x="28" y="416" width="330" height="200" rx="10" fill="#161a21" stroke="#F16029" stroke-width="1.5"/>
+  <text x="193" y="442" font-size="12" fill="#f5a623" text-anchor="middle">BANK VOLTAGE</text>
+  <path d="M88 570 A105 105 0 1 1 298 570" fill="none" stroke="#242a34" stroke-width="16"/>
+  <path d="M88 570 A105 105 0 0 1 248 478" fill="none" stroke="#4ade80" stroke-width="16" stroke-linecap="round"/>
+  <text x="193" y="556" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">12.64V</text>
+  <text x="193" y="580" font-size="10" fill="#6b7686" text-anchor="middle">alarm &#8804;11.8 &#183; &#8805;15.8</text>
+  <!-- SoC bar -->
+  <rect x="374" y="416" width="330" height="94" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="398" y="444" font-size="12" fill="#8b95a5">STATE OF CHARGE (rested est.)</text>
+  <rect x="398" y="458" width="282" height="26" rx="13" fill="#242a34"/>
+  <rect x="398" y="458" width="240" height="26" rx="13" fill="#1e9e4a"/>
+  <text x="686" y="477" font-size="16" font-weight="700" fill="#4ade80" text-anchor="end">85%</text>
+  <!-- current -->
+  <rect x="374" y="522" width="330" height="94" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="398" y="550" font-size="12" fill="#8b95a5">BANK CURRENT (hall CT)</text>
+  <text x="398" y="592" font-size="28" font-weight="700" fill="#39C3F2">&#8722;3.2 A</text>
+  <text x="700" y="592" font-size="12" fill="#8b95a5" text-anchor="end">discharging &#183; ~38 W</text>
+  <!-- trend sparkline -->
+  <rect x="720" y="416" width="372" height="200" rx="10" fill="#161a21" stroke="#242a34"/>
+  <text x="744" y="444" font-size="12" fill="#8b95a5">VOLTAGE &#183; 24 H TREND</text>
+  <polyline points="744,560 790,556 830,548 870,510 910,498 950,502 990,520 1030,548 1064,552"
+            fill="none" stroke="#39C3F2" stroke-width="2.5"/>
+  <line x1="744" y1="588" x2="1064" y2="588" stroke="#a03030" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="1064" y="584" font-size="9" fill="#a05050" text-anchor="end">11.8V alarm floor</text>
+  <text x="744" y="608" font-size="9" fill="#6b7686">charge peak 14.4V @ 13:20 (generator run)</text>
+
+  <!-- footer -->
+  <rect y="648" width="1120" height="52" fill="#12151a"/>
+  <text x="28" y="680" font-size="11" fill="#6b7686">Arduino Cloud dashboard &#183; mockup CEL-MPT-UX-001 REV 1.0 &#183; V2.0 widgets unchanged, V2.5 adds outlined cards &#183; Helios Prime</text>
+  <text x="1092" y="680" font-size="11" fill="#39C3F2" text-anchor="end">TraceOps: CEL-AST-00xx</text>
+</svg>

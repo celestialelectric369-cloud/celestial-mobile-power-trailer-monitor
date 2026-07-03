@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 820" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#59ABDF"/><stop offset="50%" stop-color="#7989C4"/><stop offset="100%" stop-color="#8854A3"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="1120" height="820" fill="#f7f8fa"/>
+  <rect width="1120" height="58" fill="url(#hdr)"/>
+  <text x="24" y="27" font-size="19" font-weight="700" fill="#fff">CELESTIAL ELECTRIC</text>
+  <text x="24" y="47" font-size="13" fill="#eef">Sentinel Node V2.5 &#8212; Isolated 12V Bank Sense Front End</text>
+  <text x="1096" y="27" font-size="13" font-weight="700" fill="#F16029" text-anchor="end">HELIOS PRIME</text>
+  <text x="1096" y="47" font-size="12" fill="#eef" text-anchor="end">galvanic isolation &#183; fused at source</text>
+
+  <!-- ISOLATION BARRIER -->
+  <line x1="640" y1="80" x2="640" y2="700" stroke="#d62828" stroke-width="3" stroke-dasharray="12 8"/>
+  <text x="640" y="76" font-size="12" font-weight="700" fill="#d62828" text-anchor="middle">GALVANIC ISOLATION BARRIER</text>
+  <text x="470" y="96" font-size="11" fill="#a5321a" text-anchor="middle">BATTERY SIDE (isolated domain)</text>
+  <text x="850" y="96" font-size="11" fill="#0c6b6b" text-anchor="middle">LOGIC SIDE (Sentinel Node)</text>
+
+  <!-- BATTERY BANK -->
+  <rect x="40" y="130" width="180" height="120" rx="8" fill="#fff" stroke="#d62828" stroke-width="2"/>
+  <text x="130" y="155" font-size="13" font-weight="700" fill="#d62828" text-anchor="middle">12V BANK</text>
+  <text x="130" y="174" font-size="10.5" fill="#444" text-anchor="middle">2 &#215; 12V lead-acid</text>
+  <text x="130" y="190" font-size="10.5" fill="#444" text-anchor="middle">810 CCA ea &#183; PARALLEL</text>
+  <text x="130" y="208" font-size="10.5" fill="#777" text-anchor="middle">12V nominal &#183; ~14.4-15.5V chg</text>
+  <text x="60" y="240" font-size="12" font-weight="700" fill="#d62828">+</text>
+  <text x="196" y="240" font-size="12" font-weight="700" fill="#222">&#8722;</text>
+
+  <!-- FUSE -->
+  <rect x="256" y="136" width="64" height="22" rx="11" fill="#fff" stroke="#a07800" stroke-width="2"/>
+  <line x1="256" y1="147" x2="320" y2="147" stroke="#a07800" stroke-width="2"/>
+  <text x="288" y="130" font-size="10.5" font-weight="700" fill="#a07800" text-anchor="middle">F1: 1A fast</text>
+  <text x="288" y="174" font-size="9.5" fill="#a05000" text-anchor="middle">within 3in of tap</text>
+  <path d="M70 230 V147 H256" stroke="#d62828" stroke-width="2.5" fill="none"/>
+  <path d="M320 147 H392" stroke="#d62828" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+
+  <!-- DIVIDER -->
+  <rect x="392" y="118" width="130" height="150" rx="8" fill="#fff" stroke="#1466B0" stroke-width="2"/>
+  <text x="457" y="140" font-size="12" font-weight="700" fill="#1466B0" text-anchor="middle">DIVIDER 11:1</text>
+  <rect x="440" y="152" width="34" height="12" fill="#f0c040" stroke="#a07800"/><text x="484" y="162" font-size="10" fill="#333">R1 100k</text>
+  <line x1="457" y1="164" x2="457" y2="182" stroke="#333" stroke-width="2"/>
+  <rect x="440" y="182" width="34" height="12" fill="#f0c040" stroke="#a07800"/><text x="484" y="192" font-size="10" fill="#333">R2 10k</text>
+  <line x1="457" y1="194" x2="457" y2="214" stroke="#333" stroke-width="2"/>
+  <path d="M447 214 H467 M450 219 H464 M453 224 H461" stroke="#333" stroke-width="2"/>
+  <text x="457" y="244" font-size="9.5" fill="#555" text-anchor="middle">GND_iso</text>
+  <text x="457" y="260" font-size="9.5" fill="#1466B0" text-anchor="middle">tap = Vbat/11</text>
+  <path d="M474 176 H560 V196 H588" stroke="#1466B0" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <text x="520" y="170" font-size="9.5" fill="#1466B0">1.15V @ 12.7V</text>
+
+  <!-- HALL CT -->
+  <circle cx="130" cy="330" r="34" fill="none" stroke="#1e9e4a" stroke-width="6"/>
+  <line x1="96" y1="330" x2="40" y2="330" stroke="#222" stroke-width="4"/>
+  <line x1="164" y1="330" x2="240" y2="330" stroke="#222" stroke-width="4"/>
+  <text x="130" y="392" font-size="12" font-weight="700" fill="#1e9e4a" text-anchor="middle">HALL CT (split-core)</text>
+  <text x="130" y="408" font-size="10" fill="#444" text-anchor="middle">&#177;50A on MAIN NEGATIVE</text>
+  <text x="130" y="423" font-size="10" fill="#777" text-anchor="middle">non-contact = isolated by physics</text>
+  <path d="M164 318 H360 V330 H588" stroke="#1e9e4a" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <text x="380" y="322" font-size="9.5" fill="#1e9e4a">2.5V &#177;0.625V analog out</text>
+
+  <!-- ADS1115 -->
+  <rect x="588" y="150" width="104" height="230" rx="8" fill="#0c2f4f" stroke="#0a1f33" stroke-width="2"/>
+  <text x="640" y="176" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">ADS1115</text>
+  <text x="640" y="192" font-size="9.5" fill="#9fd" text-anchor="middle">16-bit I2C ADC</text>
+  <text x="600" y="216" font-size="10" fill="#ffd24a">A0 &#8592; Vbat</text>
+  <text x="600" y="340" font-size="10" fill="#7CFC7C">A1 &#8592; Ibat</text>
+  <text x="640" y="368" font-size="9" fill="#9fd" text-anchor="middle">powered from 5V_iso</text>
+  <path d="M588 330 H588" stroke="#1e9e4a" stroke-width="2"/>
+
+  <!-- I2C ISOLATOR -->
+  <rect x="726" y="200" width="120 " height="110" rx="8" fill="#fff" stroke="#d62828" stroke-width="2"/>
+  <text x="786" y="226" font-size="12" font-weight="700" fill="#d62828" text-anchor="middle">ISO1540</text>
+  <text x="786" y="242" font-size="9.5" fill="#444" text-anchor="middle">I2C digital isolator</text>
+  <text x="786" y="262" font-size="9.5" fill="#444" text-anchor="middle">SDA/SCL across barrier</text>
+  <text x="786" y="282" font-size="9.5" fill="#777" text-anchor="middle">iso side &#8592;&#124;&#8594; logic side</text>
+  <path d="M692 255 H726" stroke="#0aa1a1" stroke-width="3.5" fill="none"/>
+  <path d="M846 255 H920" stroke="#0aa1a1" stroke-width="3.5" fill="none" marker-end="url(#ar)"/>
+  <text x="874" y="248" font-size="9.5" fill="#0aa1a1">I2C to Qwiic</text>
+
+  <!-- ISOLATED DCDC -->
+  <rect x="726" y="360" width="120" height="90" rx="8" fill="#fff" stroke="#a07800" stroke-width="2"/>
+  <text x="786" y="386" font-size="12" font-weight="700" fill="#a07800" text-anchor="middle">B0505S-1W</text>
+  <text x="786" y="402" font-size="9.5" fill="#444" text-anchor="middle">isolated DC/DC 5V&#8594;5V_iso</text>
+  <text x="786" y="420" font-size="9.5" fill="#444" text-anchor="middle">powers ADS1115 + CT</text>
+  <path d="M920 405 H846" stroke="#d62828" stroke-width="2.5" fill="none"/>
+  <path d="M726 405 H660 V386" stroke="#d62828" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <text x="700" y="430" font-size="9.5" fill="#a5321a" text-anchor="middle">5V_iso rail (battery-side only)</text>
+
+  <!-- UNO R4 -->
+  <rect x="920" y="150" width="170" height="330" rx="10" fill="#0c6b6b" stroke="#063f3f" stroke-width="2"/>
+  <text x="1005" y="180" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">UNO R4 WiFi</text>
+  <text x="1005" y="198" font-size="10" fill="#cfe" text-anchor="middle">Sentinel Node</text>
+  <text x="932" y="260" font-size="10.5" fill="#9ff">QWIIC / I2C bus</text>
+  <text x="932" y="278" font-size="9" fill="#cfe">(shared with BME280)</text>
+  <text x="932" y="410" font-size="10.5" fill="#ffb0b0">5V out &#8594; DC/DC in</text>
+  <text x="932" y="450" font-size="10.5" fill="#ffd24a">D4 &#8592; DS18B20 (1-Wire)</text>
+
+  <!-- DS18B20 -->
+  <rect x="40" y="480" width="200" height="70" rx="8" fill="#fff" stroke="#0aa1a1" stroke-width="2"/>
+  <text x="140" y="505" font-size="12" font-weight="700" fill="#0c6b6b" text-anchor="middle">DS18B20 probe</text>
+  <text x="140" y="522" font-size="10" fill="#444" text-anchor="middle">battery-bay temperature</text>
+  <text x="140" y="538" font-size="9.5" fill="#777" text-anchor="middle">1-Wire &#183; long-run capable</text>
+  <path d="M240 515 H700 V455 H920" stroke="#0aa1a1" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+  <text x="700" y="508" font-size="9.5" fill="#0aa1a1">3-cond + 4.7k pull-up at node (logic side, no isolation needed)</text>
+
+  <!-- CALC BOX -->
+  <rect x="290" y="560" width="800" height="130" rx="8" fill="#fff" stroke="#ccc"/>
+  <text x="306" y="584" font-size="12" font-weight="700" fill="#222">Design math</text>
+  <text x="306" y="604" font-size="10.5" fill="#333">Divider: Vout = Vin &#215; 10k/(100k+10k) = Vin/11.  Full charge 15.5V &#8594; 1.41V; design ceiling 20V &#8594; 1.82V (inside ADS1115 &#177;2.048V range).</text>
+  <text x="306" y="622" font-size="10.5" fill="#333">Resolution: 62.5&#181;V/LSB &#215; 11 = 0.7mV at the battery &#8212; far beyond need. Divider drain: 12.7V/110k = 115&#181;A (&#8776;1Ah/year, negligible).</text>
+  <text x="306" y="640" font-size="10.5" fill="#333">SoC (rested, lead-acid): 12.7V=100% &#183; 12.4=75% &#183; 12.2=50% &#183; 12.0=25% &#183; ALARM &#8804;11.8V.  High-V alarm &#8805;15.8V (charge fault).</text>
+  <text x="306" y="658" font-size="10.5" fill="#333">Hall CT: zero at 2.5V; sign gives charge vs discharge. Calibrate zero at commissioning with bank isolated.</text>
+  <text x="306" y="676" font-size="10.5" fill="#a5321a">No copper path battery&#8594;logic: analog crosses via ADC-then-ISO1540; power crosses via transformer DC/DC; current crosses via magnetics.</text>
+
+  <!-- title block -->
+  <rect x="40" y="590" width="230" height="100" rx="6" fill="#fff" stroke="#0D0F12" stroke-width="1.5"/>
+  <rect x="40" y="590" width="230" height="22" fill="#0D0F12"/>
+  <text x="50" y="605" font-size="11" font-weight="700" fill="#F16029">CELESTIAL ELECTRIC</text>
+  <g font-size="10" fill="#222">
+    <text x="50" y="628" font-weight="700">Sentinel Node V2.5</text>
+    <text x="50" y="644">Isolated Sense Front End</text>
+    <text x="50" y="663">DOC: CEL-MPT-DWG-003</text>
+    <text x="50" y="679">REV 1.0</text>
+    <text x="262" y="663" text-anchor="end">2026-07-03</text>
+    <text x="262" y="679" text-anchor="end">SHEET 1 OF 1</text>
+  </g>
+
+  <rect x="40" y="712" width="1050" height="34" rx="6" fill="#fff2ee" stroke="#F16029"/>
+  <text x="56" y="734" font-size="12" fill="#a5321a" font-weight="600">RULES: fuse within 3in of tap &#183; no unfused sense leads &#183; no shared copper across the barrier &#183; hall CT clamps on, never break the main circuit &#183; verify isolation &#8805;1M&#937; at commissioning (QA-002).</text>
+</svg>
