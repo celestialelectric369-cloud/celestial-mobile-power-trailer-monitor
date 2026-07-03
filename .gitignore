@@ -20,6 +20,6 @@ Thumbs.db
 *.tmp
 *.bak
 
-# Arduino Cloud secrets
+# Credentials - NEVER commit real WiFi secrets (example file ships instead)
 arduino_secrets.h
-**/arduino_secrets.h
+!*.example

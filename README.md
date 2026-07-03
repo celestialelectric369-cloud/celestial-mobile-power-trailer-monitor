@@ -1,147 +1,159 @@
 # Celestial Electric Mobile Power Trailer Monitor
 
-A smart low-voltage monitoring concept for Celestial Electric’s mobile power trailer, tracking battery, EcoFlow, environmental, leak, and door status through Arduino Cloud.
+Smart low-voltage monitoring for Celestial Electric's mobile power trailer:
+temperature, humidity, water-leak, and door status on an **Arduino UNO R4 WiFi**,
+published live to an **Arduino Cloud** dashboard — with field-hardened firmware
+and a complete enclosure/home-run installation package.
 
-## Project status
+**Doc family:** CEL-MPT &nbsp;|&nbsp; **Firmware:** REV 2.0 (`CEL-MPT-FW-002`) &nbsp;|&nbsp; Helios Prime
 
-**Work in progress / active build.**  
-The trailer is prepared for the monitoring system. This repository documents the bench prototype, Arduino Cloud firmware, enclosure install plan, home-run pull schedule, and field practices before final hardware installation and field testing.
+---
 
-## Project purpose
+## What this system does
 
-This project demonstrates how Celestial Electric can turn a mobile contractor trailer into a smart, monitored power platform. The first version focuses on low-voltage monitoring, clean documentation, and safe sensor integration.
+- Trailer interior **temperature + humidity** (BME280, I2C/Qwiic)
+- **Water-leak detection** at the bay low point
+- **Door/contact status** (magnetic reed)
+- Local **normal/alert LED** indication + Serial telemetry
+- **Arduino Cloud dashboard**: live gauges, state widgets, and a single
+  roll-up `systemAlert`
+- Resilient by design: local monitoring keeps running if WiFi/Cloud drops
 
-The monitoring concept includes:
+Planned V2: battery bank voltage and EcoFlow visibility **behind a protected,
+isolated sensing front end only** (see safety boundary).
 
-- Trailer interior temperature and humidity
-- Water leak detection
-- Door/contact status
-- Normal/alert LED indication
-- Arduino serial test output
-- Planned Arduino Cloud dashboard integration
-- Planned battery bank and EcoFlow visibility
-- Serviceable enclosure wiring with terminal blocks and labeled home-runs
 
-## Trailer power system notes
+## Wiring at a glance
 
-The trailer battery bank consists of two Duracell 12V lead-acid batteries rated **810 CCA each**, wired in **parallel**. Because the batteries are wired in parallel, the system remains a **12V nominal battery bank**, not a 24V system.
-
-The trailer also includes an EcoFlow portable power system as a separate mobile power source.
-
-> CCA is a starting-current rating, not an energy-capacity rating. Runtime calculations will require the battery group size, amp-hour rating, or reserve-capacity rating from the battery labels.
-
-## Enclosure and home-run install concept
-
-The field-install plan moves the monitor from breadboard into the trailer with a dedicated low-voltage enclosure, DIN terminal blocks, remote door/leak sensor home-runs, and a dedicated 5V USB-C feed.
-
-Key install notes:
-
-- Door contact home run: 25 ft
-- Leak sensor home run: 15 ft
-- USB-C power run: 6 ft
-- Recommended cable: 100 ft spool of 22/4 shielded stranded cable
-- Enclosure: non-metallic polycarbonate NEMA 4X / IP66 style enclosure
-- Power entry: IP67 USB-C bulkhead pass-through
-- Field terminations: DIN terminal blocks, not soldered field wires
-- Shielding: shield/drain landed at enclosure end only
-- Door input: external 4.7k pull-up to stiffen the long line against EMI
-
-## Safety boundary
-
-This project is for **low-voltage monitoring, training, and demonstration only**.
-
-Do not connect an Arduino directly to service equipment, PV strings, battery terminals, inverter terminals, generator controls, transfer switches, utility equipment, fire alarm circuits, or line-voltage wiring.
-
-Any real field installation must use proper listed equipment, isolation, fusing, overcurrent protection, enclosures, strain relief, wire separation, and code-compliant wiring methods. This project does not replace listed safety controls, manufacturer monitoring systems, battery management systems, utility-required equipment, generator/ATS controls, fire alarm systems, or code-required protective devices.
+| Bench (DWG-001) | Trailer install (DWG-002) |
+| --- | --- |
+| ![Bench wiring](docs/assets/drawings/bench_wiring_diagram.svg) | ![Enclosure install](docs/assets/drawings/trailer_enclosure_wiring_diagram.svg) |
 
 ## Repository layout
 
 ```text
 arduino/
-  celestial_mobile_power_trailer_monitor/
-    celestial_mobile_power_trailer_monitor.ino
-
-  celestial_mobile_power_trailer_monitor_cloud/
-    celestial_mobile_power_trailer_monitor_cloud.ino
-    thingProperties.h
-    arduino_secrets.h.example
-
-data/
-  bom.csv
-  install_bom_addendum.csv
-  pull_schedule.csv
-
+  celestial_mobile_power_trailer_monitor/         Bench test sketch (Serial only)
+  celestial_mobile_power_trailer_monitor_cloud/   REV 2.0 Cloud sketch (field-hardened)
 docs/
-  safety-note.md
-  trailer-monitoring-overview.md
-  dashboard-fields.md
-  bom.md
-  build-log.md
-  enclosure-install.md
-  install-bom-addendum.md
-  pull-schedule.md
+  trailer-monitoring-overview.md   System concept
+  dashboard-fields.md              Cloud variable contract
+  enclosure-install.md             Enclosure + home-run design decisions
+  install-bom-addendum.md          Install hardware (adds to base BOM)
+  safety-note.md                   Safety boundary
+  bom.md / build-log.md
   assets/
-    images/
-    pdfs/
-
+    drawings/    Bench + enclosure wiring diagrams (SVG, doc-controlled)
+    pdfs/        Branded packets incl. CEL-MPT-INS-001 install packet
+    images/      Concept renders
 hardware/
-  pin-map.md
-  wiring-plan.md
-  test-checklist.md
+  pin-map.md          Pin assignments
+  wiring-plan.md      Bench wiring
+  pull-schedule.md    Field home-run pull/label schedule (DR-01, WL-01, PWR-01)
+  test-checklist.md   Bench verification states
+data/
+  bom.csv                    Base bill of materials
+  install_bom_addendum.csv   Enclosure/home-run additions
+  pull_schedule.csv          Machine-readable pull schedule
+tools/
+  build_install_packet.py    Single-source generator: CSV + MD + branded PDF
 ```
 
-## Arduino sketches
+## Quick start (bench)
 
-### Bench test sketch
+1. Arduino IDE 2.x -> Boards Manager -> install **Arduino UNO R4 Boards**
+2. Library Manager -> **Adafruit BME280 Library** (accept the Unified Sensor /
+   BusIO dependencies)
+3. Wire per `hardware/wiring-plan.md` (BME280 via the R4's Qwiic connector)
+4. Upload `arduino/celestial_mobile_power_trailer_monitor/` and open Serial
+   Monitor at **115200**
+5. Walk the states in `hardware/test-checklist.md`
 
-The bench sketch reads:
+## Going live (Arduino Cloud)
 
-- BME280 temperature/humidity sensor
-- Magnetic door/contact sensor
-- Water leak sensor
-- Red/green status LEDs
+1. Arduino Cloud -> **Devices -> Add device** (binds the R4's on-board ECC608
+   crypto; do not hand-write auth)
+2. Create a **Thing** with the five variables in `docs/dashboard-fields.md`
+   (exact names/types)
+3. Enter WiFi in the Thing's Network panel; Cloud generates `thingProperties.h`
+4. Paste the logic from
+   `arduino/celestial_mobile_power_trailer_monitor_cloud/` into the generated
+   sketch (see that folder's README)
+5. Build the dashboard: 2 gauges + 3 state widgets
 
-It prints status values to the Serial Monitor and can be used before Arduino Cloud variables are created.
+Telemetry split: floats publish on a **30 s time policy** (trend + liveness
+heartbeat); booleans publish **ON_CHANGE** (instant alerts).
 
-### Arduino Cloud sketch
+## Firmware REV 2.0 highlights
 
-The Cloud sketch is a REV 2.0 field-hardening version intended for Arduino Cloud integration. It adds:
+- **Non-blocking loop** — `ArduinoCloud.update()` every pass; `millis()` cadence
+  for sensing (no `delay()` starving the radio)
+- **Confirm-N glitch filter** on door/leak inputs — EMI spikes on long home runs
+  cannot false-trip an alert
+- **BME280 auto-recovery** — NaN or dropped-sensor triggers non-blocking
+  re-init; a jostled connector self-heals without reboot
+- **Offline-first** — sensors + LEDs keep alerting locally with Cloud down
+- Optional (commented): hardware watchdog, WiFi RSSI diagnostic
 
-- Door/leak glitch filtering
-- Consecutive agreeing samples before accepting state changes
-- BME280 self-recovery if sensor reads drop out
-- Cloud variable updates
-- A reference `thingProperties.h`
-- A safe `arduino_secrets.h.example` file without real WiFi credentials
+## Trailer installation
 
-## Planned Arduino Cloud variables
+The full field package lives in
+`docs/assets/pdfs/CEL-MPT-INS-001_install_packet.pdf` and
+`docs/enclosure-install.md`. Key doctrine:
 
-```text
-temperatureF       float, read-only
-humidityPercent   float, read-only
-waterDetected     boolean, read-only
-doorOpen          boolean, read-only
-systemAlert       boolean, read-only
-batteryVoltage    float, planned V2 with protected interface
-ecoFlowStatus     string, planned V2/manual or API-based integration
-```
+- **Non-metallic NEMA 4X enclosure** (metal = Faraday cage = dead WiFi)
+- **22/4 shielded home runs**, shield grounded at the enclosure end **only**
+- **External 4.7k pull-up** on the long door line
+- **BME280 stays local** — I2C is not a long-run bus (remote temp = DS18B20)
+- Dedicated **>= 2 A USB-C** supply via IP67 bulkhead; DIN terminals;
+  bottom-entry glands with drip loops; vibration isolators
 
-## Current build phase
+## Trailer power system notes
+
+The trailer battery bank is two Duracell 12V lead-acid batteries rated
+**810 CCA each**, wired in **parallel** — a **12V nominal** bank, not 24V. An
+EcoFlow portable power system rides along as a separate source.
+
+> CCA is a starting-current rating, not energy capacity. Runtime math needs the
+> amp-hour or reserve-capacity rating from the battery labels.
+
+## Safety boundary
+
+**Low-voltage monitoring, training, and demonstration only.**
+
+Do not connect an Arduino directly to service equipment, PV strings, battery
+terminals, inverter terminals, generator controls, transfer switches, utility
+equipment, fire alarm circuits, or line-voltage wiring. Any real field
+installation must use listed equipment, isolation, fusing, overcurrent
+protection, enclosures, strain relief, wire separation, and code-compliant
+wiring methods. This project does not replace listed safety controls, BMS,
+manufacturer monitoring, generator/ATS controls, fire alarm systems, or
+code-required protective devices.
+
+## Build phase
 
 - [x] Concept documentation
 - [x] Arduino Project Hub submission
-- [x] Initial hardware test sketch
-- [x] Arduino Cloud REV 2.0 sketch
-- [x] Enclosure install plan
-- [x] Pull schedule and install BOM addendum
+- [x] Bench test sketch
+- [x] Parts list
+- [x] Cloud sketch (REV 2.0, field-hardened)
+- [x] Enclosure + home-run install package (CEL-MPT-INS-001)
 - [ ] Purchase parts
 - [ ] Build bench prototype
 - [ ] Install monitoring enclosure
-- [ ] Test sensors
-- [ ] Create Arduino Cloud dashboard
+- [ ] Commissioning check (incl. closed-lid RF test)
 - [ ] Add real trailer photos
 - [ ] Update Project Hub page after first field test
 
+## Document control
+
+| Doc | Title | Rev |
+| --- | --- | --- |
+| CEL-MPT-FW-002 | Cloud firmware (field-hardened) | 2.0 |
+| CEL-MPT-DWG-001 | Bench wiring diagram | 1.0 |
+| CEL-MPT-DWG-002 | Enclosure & home-run install diagram | 1.0 |
+| CEL-MPT-INS-001 | Install packet (BOM addendum + pull schedule) | 1.0 |
+
 ## License
 
-This repository is licensed under the Apache License 2.0 unless changed later to match the final Arduino Project Hub license selection.
+Apache License 2.0.

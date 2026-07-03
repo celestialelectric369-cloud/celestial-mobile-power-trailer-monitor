@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 780" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="celHeader" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#59ABDF"/>
+      <stop offset="50%" stop-color="#7989C4"/>
+      <stop offset="100%" stop-color="#8854A3"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="780" fill="#f7f8fa"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1040" height="58" fill="url(#celHeader)"/>
+  <text x="24" y="27" font-size="19" font-weight="700" fill="#ffffff">CELESTIAL ELECTRIC</text>
+  <text x="24" y="47" font-size="13" fill="#eef">Mobile Power Trailer Monitor &#8212; Bench Wiring Diagram</text>
+  <text x="1016" y="27" font-size="13" font-weight="700" fill="#F16029" text-anchor="end">HELIOS PRIME</text>
+  <text x="1016" y="47" font-size="12" fill="#eef" text-anchor="end">Arduino UNO R4 WiFi &#183; low-voltage only</text>
+
+  <!-- ================= BOARD ================= -->
+  <rect x="380" y="210" width="250" height="360" rx="10" fill="#0c6b6b" stroke="#063f3f" stroke-width="2"/>
+  <text x="505" y="240" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Arduino</text>
+  <text x="505" y="260" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">UNO R4 WiFi</text>
+
+  <!-- Qwiic port (left edge) -->
+  <rect x="366" y="292" width="14" height="26" fill="#111" stroke="#000"/>
+  <text x="375" y="286" font-size="11" fill="#cfe" text-anchor="middle">QWIIC</text>
+
+  <!-- USB-C (bottom) -->
+  <rect x="486" y="570" width="38" height="14" fill="#111" stroke="#000"/>
+  <text x="505" y="602" font-size="11" fill="#333" text-anchor="middle">USB-C</text>
+
+  <!-- Right-edge header pins -->
+  <!-- pin helper: dot + label -->
+  <g font-size="13" fill="#eafff9" font-weight="700">
+    <circle cx="630" cy="300" r="5" fill="#ffd24a"/><text x="618" y="304" text-anchor="end">D2</text>
+    <circle cx="630" cy="352" r="5" fill="#ffd24a"/><text x="618" y="356" text-anchor="end">D3</text>
+    <circle cx="630" cy="404" r="5" fill="#ffd24a"/><text x="618" y="408" text-anchor="end">D5</text>
+    <circle cx="630" cy="456" r="5" fill="#ffd24a"/><text x="618" y="460" text-anchor="end">D6</text>
+    <circle cx="630" cy="516" r="5" fill="#222"/><text x="618" y="520" text-anchor="end">GND</text>
+  </g>
+
+  <!-- ================= BME280 (I2C via Qwiic) ================= -->
+  <rect x="70" y="262" width="210" height="86" rx="8" fill="#ffffff" stroke="#0aa1a1" stroke-width="2"/>
+  <text x="175" y="286" font-size="14" font-weight="700" fill="#0c6b6b" text-anchor="middle">BME280</text>
+  <text x="175" y="305" font-size="11.5" fill="#444" text-anchor="middle">Temp / Humidity (I2C)</text>
+  <text x="175" y="323" font-size="11.5" fill="#444" text-anchor="middle">STEMMA QT / Qwiic</text>
+  <text x="175" y="340" font-size="11" fill="#0aa1a1" text-anchor="middle">addr 0x76 or 0x77 (auto)</text>
+  <!-- Qwiic cable: single 4-wire cable -->
+  <path d="M280 305 H366" stroke="#0aa1a1" stroke-width="4" fill="none"/>
+  <text x="323" y="298" font-size="11" fill="#0aa1a1" text-anchor="middle">4-pin Qwiic cable</text>
+
+  <!-- ================= DOOR CONTACT (D2) ================= -->
+  <rect x="770" y="270" width="200" height="60" rx="8" fill="#ffffff" stroke="#1d6fb8" stroke-width="2"/>
+  <text x="870" y="293" font-size="14" font-weight="700" fill="#1d6fb8" text-anchor="middle">Door / Contact</text>
+  <text x="870" y="312" font-size="11.5" fill="#444" text-anchor="middle">reed switch (no polarity)</text>
+  <!-- signal to D2 -->
+  <path d="M630 300 H700 V286 H770" stroke="#1d6fb8" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <!-- ground leg -->
+  <path d="M770 316 H710 V516 H630" stroke="#222" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="705" y="278" font-size="10.5" fill="#1d6fb8">to D2</text>
+  <text x="716" y="512" font-size="10.5" fill="#222">to GND</text>
+
+  <!-- ================= WATER SENSOR (D3) ================= -->
+  <rect x="770" y="348" width="200" height="68" rx="8" fill="#ffffff" stroke="#1d6fb8" stroke-width="2"/>
+  <text x="870" y="370" font-size="14" font-weight="700" fill="#1d6fb8" text-anchor="middle">Water / Leak Sensor</text>
+  <text x="870" y="388" font-size="11.5" fill="#444" text-anchor="middle">digital out (DO) &#8594; D3</text>
+  <text x="870" y="405" font-size="11" fill="#d62828" text-anchor="middle">VCC + GND to board</text>
+  <path d="M630 352 H770" stroke="#1d6fb8" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="700" y="345" font-size="10.5" fill="#1d6fb8">DO to D3</text>
+
+  <!-- ================= GREEN LED (D5) ================= -->
+  <rect x="770" y="434" width="200" height="56" rx="8" fill="#ffffff" stroke="#1e9e4a" stroke-width="2"/>
+  <text x="812" y="456" font-size="13" font-weight="700" fill="#1e9e4a">GREEN LED</text>
+  <text x="812" y="474" font-size="11" fill="#444">NORMAL status</text>
+  <!-- resistor symbol -->
+  <rect x="686" y="428" width="30" height="12" fill="#f0c040" stroke="#a07800"/>
+  <text x="701" y="424" font-size="10" fill="#a07800" text-anchor="middle">220&#937;</text>
+  <path d="M630 404 H660 V434 H686" stroke="#1e9e4a" stroke-width="2.5" fill="none"/>
+  <path d="M716 434 H745 V445 H770" stroke="#1e9e4a" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="640" y="428" font-size="10.5" fill="#1e9e4a">D5</text>
+
+  <!-- ================= RED LED (D6) ================= -->
+  <rect x="770" y="500" width="200" height="56" rx="8" fill="#ffffff" stroke="#d62828" stroke-width="2"/>
+  <text x="812" y="522" font-size="13" font-weight="700" fill="#d62828">RED LED</text>
+  <text x="812" y="540" font-size="11" fill="#444">ALERT status</text>
+  <rect x="686" y="494" width="30" height="12" fill="#f0c040" stroke="#a07800"/>
+  <text x="701" y="490" font-size="10" fill="#a07800" text-anchor="middle">220&#937;</text>
+  <path d="M630 456 H665 V500 H686" stroke="#d62828" stroke-width="2.5" fill="none"/>
+  <path d="M716 500 H745 V511 H770" stroke="#d62828" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="640" y="450" font-size="10.5" fill="#d62828">D6</text>
+
+  <!-- LED cathode return note -->
+  <text x="812" y="574" font-size="10.5" fill="#555">LED cathode (flat/short leg) &#8594; GND rail</text>
+
+  <!-- ================= POWER ================= -->
+  <rect x="405" y="628" width="200" height="58" rx="8" fill="#ffffff" stroke="#d62828" stroke-width="2"/>
+  <text x="505" y="650" font-size="13" font-weight="700" fill="#d62828" text-anchor="middle">5V USB-C supply</text>
+  <text x="505" y="668" font-size="11" fill="#444" text-anchor="middle">bench power / programming</text>
+  <path d="M505 628 V584" stroke="#d62828" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ================= LEGEND ================= -->
+  <rect x="70" y="410" width="255" height="176" rx="8" fill="#ffffff" stroke="#ccc"/>
+  <text x="84" y="432" font-size="13" font-weight="700" fill="#222">Wire legend</text>
+  <line x1="84" y1="448" x2="118" y2="448" stroke="#0aa1a1" stroke-width="4"/><text x="126" y="452" font-size="12" fill="#333">I2C / Qwiic (SDA,SCL,V,GND)</text>
+  <line x1="84" y1="470" x2="118" y2="470" stroke="#1d6fb8" stroke-width="3"/><text x="126" y="474" font-size="12" fill="#333">Digital signal</text>
+  <line x1="84" y1="492" x2="118" y2="492" stroke="#d62828" stroke-width="3"/><text x="126" y="496" font-size="12" fill="#333">Power (VCC / 5V)</text>
+  <line x1="84" y1="514" x2="118" y2="514" stroke="#222" stroke-width="3"/><text x="126" y="518" font-size="12" fill="#333">Ground (GND)</text>
+  <text x="84" y="544" font-size="11" fill="#a05000">Door: D2 uses INPUT_PULLUP</text>
+  <text x="84" y="560" font-size="11" fill="#a05000">closed = LOW, open = HIGH</text>
+  <text x="84" y="576" font-size="11" fill="#a05000">Leak logic invert? set WATER_</text>
+
+  <!-- Title / revision block -->
+  <rect x="70" y="600" width="270" height="100" rx="6" fill="#ffffff" stroke="#0D0F12" stroke-width="1.5"/>
+  <rect x="70" y="600" width="270" height="22" fill="#0D0F12"/>
+  <text x="80" y="615" font-size="11" font-weight="700" fill="#F16029">CELESTIAL ELECTRIC</text>
+  <text x="332" y="615" font-size="9.5" fill="#39C3F2" text-anchor="end">Helios Prime</text>
+  <g font-size="10" fill="#222">
+    <text x="80" y="638" font-weight="700">Mobile Power Trailer Monitor</text>
+    <text x="80" y="655">Bench Wiring Diagram</text>
+    <text x="80" y="674">DOC: CEL-MPT-DWG-001</text>
+    <text x="80" y="690">REV 1.0</text>
+    <text x="332" y="674" text-anchor="end">DATE 2026-07-02</text>
+    <text x="332" y="690" text-anchor="end">SHEET 1 OF 2</text>
+  </g>
+
+  <!-- Safety strip -->
+  <rect x="70" y="712" width="900" height="34" rx="6" fill="#fff2ee" stroke="#F16029"/>
+  <text x="86" y="734" font-size="12.5" fill="#a5321a" font-weight="600">SAFETY: Low-voltage sensor wiring ONLY. Do not connect to battery/PV/inverter/generator/transfer-switch or any line-voltage. Battery sensing = V2, protected front end.</text>
+</svg>
