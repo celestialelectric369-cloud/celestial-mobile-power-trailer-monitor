@@ -1,0 +1,18 @@
+qty,item,spec,purpose,source_example,notes
+1,"Enclosure, polycarbonate NEMA 4X (non-metallic)","~8x6x4 in, IP66/4X, clear or opaque lid",House board + DIN terminals; RF-transparent for WiFi,Bud/Polycase/Hammond or equiv,MUST be non-metallic - a metal box blocks the on-board WiFi antenna.
+1,"DIN rail, 35 mm","steel/aluminum, cut to ~6 in",Mount terminal blocks + board carrier,AutomationDirect/DIN-rail stock,Trim to enclosure interior width.
+10,"Feed-through terminal blocks, 2.5 mm^2","screw or spring, DIN-mount",Land all field conductors (serviceable),Phoenix/Wago/Dinkle or equiv,7 used + spares. Do NOT solder field wires to the board.
+1,Terminal end bracket + end plate set,35 mm DIN,Retain the terminal stack,matches terminal brand,2 end brackets + 1 end plate typical.
+2,Ground/shield terminal block,"grounding type, DIN-mount",Single-point shield/GND landing bar,matches terminal brand,Shield lands here at ENCLOSURE end only.
+3,"Cable gland, IP68","PG7 or M12, 3.0-6.5 mm cable OD",Seal + strain-relief the two signal home runs,Heyco/generic nylon glands,"2 used (door, leak) + 1 spare. Bottom entry."
+1,USB-C panel-mount bulkhead pass-through,"IP67, C-female to C-female",Power entry for the dedicated 5V supply,generic IP67 USB-C bulkhead,Cleaner + sealed vs. trying to gland a molded USB plug.
+1,"Shielded cable, 22 AWG / 4-cond, stranded (100 ft spool)","overall foil shield + drain, ~5-6 mm OD",Both home runs (standardized on one SKU),security/alarm cable (e.g. 22/4 shielded),~54 ft needed (door 25 + leak 15 + slack/loops). 22/4 gives a spare conductor for future use.
+1,"Wire ferrules, 22 AWG (0.34 mm^2) + crimp tool",insulated ferrules assortment,Terminate stranded conductors into terminals,generic ferrule kit,Matches Celestial ferrule discipline; prevents strand splay.
+2,"Resistor, 4.7k ohm 1/4 W",5% carbon film,External pull-up: door line D2 -> 5V,reuse from stock,1 used + spare. Stiffens the long door line vs. noise.
+2,"Panel-mount LED holder/bezel, 5 mm",chrome or black bezel,Face-mount the green/red status LEDs,generic 5mm LED holders,Uses the 5mm LEDs + 220 ohm from the base BOM.
+4,Anti-vibration mount / rubber isolator,"well-nut or grommet mount, M4/M5",Isolate enclosure from trailer vibration,McMaster/generic,Prevents fatigue on solder joints + terminals.
+1,Self-fusing silicone tape + heat-shrink assortment,-,Shield termination + far-end drain dressing,generic,Cut + tape shield/drain at each sensor end.
+1,Wire label set (heat-shrink or self-lam wrap),printable,Both-end labels per pull schedule,Brady/generic,"Label DR-01, WL-01, PWR-01, ENC-01."
+1,Cable ties + adhesive mounts,UV-rated (trailer),Dress conductors + form drip loops,generic UV-black ties,Use UV-rated for a mobile/outdoor environment.
+1,[FUTURE] Waterproof DS18B20 1-Wire temp probe + 4.7k,"1-Wire, waterproof lead",Remote temperature WITHOUT extending I2C,Adafruit/generic DS18B20,Optional. I2C/BME280 must stay local; 1-Wire runs long.
+2,[FUTURE] Clamp-on ferrite core,for 5-6 mm cable,Extra EMI suppression on home runs if needed,Wurth/generic,Optional. Add only if noise persists after shielding.
