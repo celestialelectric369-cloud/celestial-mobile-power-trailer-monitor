@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1 - 2026-07-03
+
+### Documentation
+- Added CEL-MPT-QA-001 commissioning & QA sign-off checklist (docs/assets/pdfs).
+- Added CEL-MPT-RM-001 platform evolution roadmap - Sentinel Node (docs/assets/pdfs).
+- Added CEL-MPT-DWG-003 isolated 12V bank sense front-end drawing (docs/assets/drawings).
+- Added CEL-MPT-UX-001 V2.5 dashboard display mockup (docs/assets/images).
+- README: doc-control table and build-phase checklist updated to v2.1 doc family.
+
+
 ## v2.0 - 2026-07-02
 
 ### Firmware

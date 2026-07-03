@@ -138,12 +138,16 @@ code-required protective devices.
 - [x] Parts list
 - [x] Cloud sketch (REV 2.0, field-hardened)
 - [x] Enclosure + home-run install package (CEL-MPT-INS-001)
-- [ ] Purchase parts
+- [x] Commissioning checklist authored (CEL-MPT-QA-001)
+- [x] Platform evolution roadmap adopted (CEL-MPT-RM-001)
+- [x] V2.5 isolated sense front end designed (CEL-MPT-DWG-003)
+- [ ] Purchase parts (V2.0 baseline)
 - [ ] Build bench prototype
 - [ ] Install monitoring enclosure
-- [ ] Commissioning check (incl. closed-lid RF test)
+- [ ] Commissioning per QA-001 (incl. closed-lid RF test)
 - [ ] Add real trailer photos
 - [ ] Update Project Hub page after first field test
+- [ ] V2.5 Power Sense build (gated on QA-001 Phases 1-2 pass)
 
 ## Document control
 
@@ -152,7 +156,11 @@ code-required protective devices.
 | CEL-MPT-FW-002 | Cloud firmware (field-hardened) | 2.0 |
 | CEL-MPT-DWG-001 | Bench wiring diagram | 1.0 |
 | CEL-MPT-DWG-002 | Enclosure & home-run install diagram | 1.0 |
+| CEL-MPT-DWG-003 | Isolated 12V sense front end (V2.5) | 1.0 |
 | CEL-MPT-INS-001 | Install packet (BOM addendum + pull schedule) | 1.0 |
+| CEL-MPT-QA-001 | Commissioning & QA sign-off checklist | 1.0 |
+| CEL-MPT-RM-001 | Platform evolution roadmap (Sentinel Node) | 1.0 |
+| CEL-MPT-UX-001 | Dashboard display mockup (V2.5) | 1.0 |
 
 ## License
 
