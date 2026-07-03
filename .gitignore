@@ -1,0 +1,25 @@
+# Arduino / build output
+build/
+*.hex
+*.elf
+*.bin
+*.map
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# Arduino Cloud secrets
+arduino_secrets.h
+**/arduino_secrets.h
